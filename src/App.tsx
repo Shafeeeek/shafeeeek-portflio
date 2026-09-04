@@ -4,6 +4,7 @@
  */
 
 import React, { useState } from 'react';
+import { ThemeProvider, useTheme } from './context/ThemeContext';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProjectsSection } from './components/ProjectsSection';
@@ -13,9 +14,11 @@ import { ContactSection } from './components/ContactSection';
 import { Footer } from './components/Footer';
 import { ResumeModal } from './components/ResumeModal';
 
-export default function App() {
+function PortfolioApp() {
   const [isResumeOpen, setIsResumeOpen] = useState(false);
   const [selectedDemo, setSelectedDemo] = useState<'calm-cue' | 'diabetes-expert' | 'coffee-brain'>('calm-cue');
+  const { theme } = useTheme();
+  const isDark = theme === 'dark';
 
   const handleSelectDemo = (demo: 'calm-cue' | 'diabetes-expert' | 'coffee-brain') => {
     setSelectedDemo(demo);
@@ -26,7 +29,11 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0A0A0A] text-[#F5F5F5] flex flex-col font-sans selection:bg-white selection:text-black">
+    <div className={`min-h-screen flex flex-col font-sans transition-colors duration-300 ${
+      isDark 
+        ? 'bg-[#0A0A0A] text-[#F5F5F5] selection:bg-white selection:text-black' 
+        : 'bg-[#F8FAFC] text-slate-900 selection:bg-sky-500 selection:text-white'
+    }`}>
       {/* Sticky Navbar */}
       <Navbar onOpenResume={() => setIsResumeOpen(true)} />
 
@@ -54,5 +61,13 @@ export default function App() {
         onClose={() => setIsResumeOpen(false)}
       />
     </div>
+  );
+}
+
+export default function App() {
+  return (
+    <ThemeProvider>
+      <PortfolioApp />
+    </ThemeProvider>
   );
 }

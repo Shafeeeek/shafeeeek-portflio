@@ -1,6 +1,8 @@
 {
-  "name": "Mohamed Shafeek - Mobile & Software Engineer Portfolio",
-  "description": "Professional portfolio for Mohamed Shafeek, Computer Science graduate and Mobile Application Developer specializing in React Native, Expo, and Full-Stack Engineering.",
+  "name": "Mohamed Shafeek - React & React Native Developer Portfolio",
+  "description": "Professional portfolio for Mohamed Shafeek, React & React Native Developer specializing in modern React.js, Next.js, cross-platform mobile apps (CLI & Expo), TypeScript, and component-driven software architectures.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }
